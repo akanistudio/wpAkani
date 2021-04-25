@@ -1,4 +1,4 @@
-FROM wordpress:5.7.1
+FROM wordpress:5.7.1-php7.4-apache
 
 # QUICK DB FOR TEST
 # docker pull mysql:5.7.34
@@ -11,13 +11,13 @@ ENV WORDPRESS_DB_HOST=host.docker.internal \
     WORDPRESS_TABLE_PREFIX=wp_
 	
 #ENV WORDPRESS_DEBUG=TRUE
-	
+
 COPY wp-content/ /var/www/html/wp-content/
 COPY .gitignore /var/www/html/
+COPY akani-entrypoint.sh /usr/local/bin/
 
-# DEBUG
-#RUN KEYWORD="define( 'WP_DEBUG', true );";
-#RUN ESCAPED_KEYWORD=$(printf '%s\n' "$KEYWORD" | sed -e 's/[]\/$*.^[]/\\&/g');
-#RUN REPLACE="define( 'WP_DEBUG', false );";
-#RUN ESCAPED_REPLACE=$(printf '%s\n' "$REPLACE" | sed -e 's/[]\/$*.^[]/\\&/g');
-#RUN sed -i 's/$ESCAPED_KEYWORD/$ESCAPED_REPLACE/g' /var/www/html/wp-config.php
+# to build run 
+# docker build -t wpakani
+
+ENTRYPOINT ["akani-entrypoint.sh"]
+CMD ["apache2-foreground"]
