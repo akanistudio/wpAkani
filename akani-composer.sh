@@ -1,8 +1,9 @@
+# remove some unnecessary files
 cd vendor/wordpress/wordpress/
-cd wp-content/plugins/
+rm wp-content/plugins/hello.php
+cd wp-content/themes/
 rm -R -- */
-rm hello.php
-cd ../../wp-content/themes/
-rm -R -- */
+
+# copy whole wordpress
 cd ../..
 cp -rf * ../../..
