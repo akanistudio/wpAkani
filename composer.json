@@ -1,0 +1,33 @@
+{
+    "repositories": [
+		{
+			"type": "package",
+			"package": {
+                "name": "wordpress/wordpress",
+				"type": "wordpress-app",
+                "version": "5.7.1",
+                "dist": {
+                    "url": "https://github.com/WordPress/WordPress/archive/refs/tags/5.7.1.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/WordPress/WordPress.git",
+                    "type": "svn",
+                    "reference": "tags/5.7.1"
+                }
+            }
+        }
+	],
+	"require": {
+        "php": ">=5.3.2",
+		"wordpress/wordpress": "5.7.1"
+	},
+	"extra": {
+        "installer-paths": {
+            "test/test": ["wordpress/wordpress"]
+        }
+    },
+    "scripts": {
+        "post-update-cmd": "bash akani-composer.sh"
+    }
+}
