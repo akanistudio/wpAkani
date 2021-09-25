@@ -1,2 +1,7 @@
-rm -rf vendor/wordpress/wordpress/wp-content
-cp -r vendor/wordpress/wordpress/* .
+cd vendor/wordpress/wordpress/
+cd wp-content/plugins/
+rm -R -- */
+cd ../../wp-content/themes/
+rm -R -- */
+cd ../..
+cp -rf * ../../..
