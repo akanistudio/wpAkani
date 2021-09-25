@@ -8,14 +8,16 @@ rm -R -- */
 cd ../..
 cp -rf * ../../..
 
-# prepare config file
+# prepare config file, no override
 cd ../../..
-cp wp-config-sample.php wp-config.php
+cp -n wp-config-sample.php wp-config.php
+# replace params in config
 sed -i -e "s/database_name_here/$1/g" wp-config.php
 sed -i -e "s/username_here/$2/g" wp-config.php
 sed -i -e "s/password_here/$3/g" wp-config.php
 sed -i -e "s/localhost/$4/g" wp-config.php
 
+#create seeds
 count=8
 for i in $(seq $count); do
     SALT=`openssl rand -hex 64`
