@@ -23,6 +23,9 @@ wp-content/advanced-cache.php
 wp-content/object-cache.php
 wp-content/wp-cache-config.php
 wp-content/db.php
+wp-content/plugins/index.php
+wp-content/themes/index.php
+wp-content/index.php
 
 wp-admin/
 wp-includes/
@@ -66,3 +69,6 @@ wp-includes/
 /wp-signup.php
 /wp-trackback.php
 /xmlrpc.php
+
+vendor/
+composer.lock
