@@ -28,7 +28,7 @@
         }
     },
     "scripts": {
-		"pre-update-cmd": "git clean -dfX",
-        "post-update-cmd": "bash akani-composer.sh dbName dbUser dbPassword dbhost"
+        "post-update-cmd": "bash akani-composer.sh dbName dbUser dbPassword dbhost",
+		"reset": "git clean -f -X -d"
     }
 }
